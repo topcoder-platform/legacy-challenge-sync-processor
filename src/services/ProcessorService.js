@@ -40,6 +40,12 @@ async function process (message) {
         logger.info(`Syncing challenge ${message.payload.challengeId}`)
         await helper.triggerSync(message.payload.challengeId)
       }
+      try {
+        logger.info(`Forcing ES feeder ${message.payload.challengeId}`)
+        await helper.forceV4ESFeeder(message.payload.challengeId)
+      } catch (e) {
+        logger.error(`createChallenge - Error calling forceV4ESFeeder ${e}`)
+      }
       break
     default:
       logger.info('Ignoring message as type is not supported')

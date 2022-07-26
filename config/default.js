@@ -25,5 +25,7 @@ module.exports = {
 
   CHALLENGE_SYNC_URL: process.env.CHALLENGE_SYNC_URL || 'https://api.topcoder-dev.com/v5/challenge-migration/sync',
   CHALLENGE_MIGRATION_URL: process.env.CHALLENGE_MIGRATION_URL || 'https://api.topcoder-dev.com/v5/challenge-migration',
-  CHALLENGE_API_URL: process.env.CHALLENGE_API_URL || 'https://api.topcoder-dev.com/v5/challenges'
+  CHALLENGE_API_URL: process.env.CHALLENGE_API_URL || 'https://api.topcoder-dev.com/v5/challenges',
+
+  V4_ES_FEEDER_API_URL: process.env.V4_ES_FEEDER_API_URL || 'https://api.topcoder-dev.com/v4/esfeeder/challenges'
 }

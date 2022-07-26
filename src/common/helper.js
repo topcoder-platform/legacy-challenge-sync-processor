@@ -88,9 +88,24 @@ async function getChallengeFromV5 (legacyId) {
   return _.get(res, 'data[0]')
 }
 
+/**
+ * Force ES feeder
+ * @param {Number} legacyId legacy challenge ID
+ */
+async function forceV4ESFeeder (legacyId) {
+  const token = await getM2MToken()
+  const body = {
+    param: {
+      challengeIds: [legacyId]
+    }
+  }
+  await request.put(`${config.V4_ES_FEEDER_API_URL}`).send(body).set({ Authorization: `Bearer ${token}` })
+}
+
 module.exports = {
   triggerSync,
   getChallengeFromV5,
   triggerMigration,
-  getMigrationStatuses
+  getMigrationStatuses,
+  forceV4ESFeeder
 }
