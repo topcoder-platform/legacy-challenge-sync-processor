@@ -99,7 +99,11 @@ async function forceV4ESFeeder (legacyId) {
       challengeIds: [legacyId]
     }
   }
-  await request.put(`${config.V4_ES_FEEDER_API_URL}`).send(body).set({ Authorization: `Bearer ${token}` })
+  await axios.put(config.V4_ES_FEEDER_API_URL, body, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
 }
 
 module.exports = {
