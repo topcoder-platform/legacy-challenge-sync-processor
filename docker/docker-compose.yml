@@ -1,0 +1,10 @@
+version: '3'
+services:
+  legacy-challenge-sync-processor:
+    image: legacy-challenge-sync-processor:latest
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    env_file:
+      - api.env
+    network_mode: "host"
